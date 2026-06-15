@@ -1,6 +1,8 @@
 # Question Router
 
-A [Codex](https://github.com/anthropics/claude-code) / [Claude Code](https://claude.ai/code) skill that turns under-specified questions into well-framed, high-quality answers. It classifies the request, checks context sufficiency, asks only necessary clarifying questions, loads the relevant response contract, and validates the answer before finalizing.
+A framework-agnostic prompting methodology that turns under-specified questions into well-framed, high-quality answers. It classifies the request, checks context sufficiency, asks only necessary clarifying questions, loads the relevant response contract, and validates the answer before finalizing.
+
+The instructions work as a **system prompt** for any LLM-based agent — Claude Code, Codex, Cursor, Windsurf, ChatGPT, LangChain, or your own custom agent. The repo happens to use the Codex skill format (YAML frontmatter + markdown), but the methodology itself is platform-independent.
 
 ## How It Works
 
@@ -64,20 +66,25 @@ question-router/
     └── run_evals.sh                   # Full eval pipeline (validate → build → run)
 ```
 
-## Getting Started
+## Usage
 
-### Prerequisites
+This methodology works with any LLM agent. Choose the approach that fits your setup:
 
-- [Claude Code](https://claude.ai/code) or [Codex](https://github.com/anthropics/claude-code) CLI
-
-### Installation
+### As a Codex / Claude Code skill
 
 ```bash
-# Clone the skill into your Codex skills directory
 git clone https://github.com/b1uelake/question-router.git ~/.codex/skills/question-router
 ```
 
-The skill activates automatically when you ask broad, vague, complex, learning, analysis, decision, planning, risk, or technical questions.
+The skill auto-activates when you ask broad, vague, or complex questions.
+
+### As a system prompt (any agent)
+
+Copy `SKILL.md` + the relevant `references/*.md` into your system prompt or custom instructions. The files are plain markdown — no special format required.
+
+### As a LangChain / custom agent prompt
+
+Load `SKILL.md` and the reference contracts into your agent's instruction template. The eval suite in `evals/evals.json` provides regression test cases you can use with your own eval pipeline.
 
 ### Running Validation
 
@@ -90,8 +97,15 @@ python3 scripts/validate_skill.py
 
 ```bash
 # Requires promptfoo: npm install -g promptfoo
+# The scripts below use promptfoo to run assertions defined in evals/evals.json
 bash scripts/run_evals.sh
 ```
+
+The eval scripts default to a Codex-style HTTP API endpoint. To use a different provider (OpenAI, Anthropic, etc.), pass a custom config or edit `scripts/build_promptfoo_config.py`.
+
+## Codex-Specific Format
+
+The repo uses Codex's skill format (`SKILL.md` with YAML frontmatter, `agents/openai.yaml` interface definition). These files are thin wrappers — the core methodology lives in the reference contracts and the classification logic in `SKILL.md`, both of which are plain markdown. You can strip the YAML frontmatter and `agents/` directory and use the rest with any agent framework.
 
 ## Design Principles
 
