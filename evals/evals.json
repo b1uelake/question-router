@@ -1,0 +1,75 @@
+[
+  {
+    "id": "learning-pytest-compact",
+    "question": "What is pytest?",
+    "expectedType": "learning",
+    "shouldClarify": false,
+    "mustInclude": ["pytest", "test", "assert"],
+    "mustAvoid": ["encyclopedia"],
+    "notes": "Simple beginner definition should use compact mode and define prerequisite terms introduced in the answer."
+  },
+  {
+    "id": "analysis-microservices",
+    "question": "Why do startups choose microservices over monoliths?",
+    "expectedType": "analysis",
+    "shouldClarify": false,
+    "mustInclude": ["analysis", "assumption", "inference", "counterexample", "judgment"],
+    "mustAvoid": ["learning path only"],
+    "notes": "Why/tradeoff question should be analysis, not learning."
+  },
+  {
+    "id": "decision-react-vue",
+    "question": "Should I use React or Vue for my new project?",
+    "expectedType": "decision",
+    "shouldClarify": true,
+    "mustInclude": ["decision", "project", "team", "priorities"],
+    "mustAvoid": ["React is always", "Vue is always"],
+    "notes": "Missing project context should trigger concise clarifying questions before a verdict."
+  },
+  {
+    "id": "plan-ai-application-engineering",
+    "question": "Build me a 10-week study plan for AI application engineering.",
+    "expectedType": "plan",
+    "secondaryType": "learning",
+    "shouldClarify": true,
+    "mustInclude": ["plan", "Python", "API", "LLM", "RAG", "deployment", "weekly time", "target outcome"],
+    "mustAvoid": ["full 10-week plan before intake"],
+    "notes": "Long-horizon personalized learning plan should ask deeper intake first."
+  },
+  {
+    "id": "risk-password-sha256",
+    "question": "What could go wrong if I store user passwords with just SHA-256 hashing?",
+    "expectedType": "risk",
+    "shouldClarify": false,
+    "mustInclude": ["risk", "failure mode", "mitigation", "verify", "residual"],
+    "mustAvoid": ["safe enough"],
+    "notes": "Security risk should identify concrete failure modes and mitigations."
+  },
+  {
+    "id": "technical-api-502",
+    "question": "My Python API endpoint sometimes returns 502 errors under load. How do I debug this?",
+    "expectedType": "technical",
+    "shouldClarify": true,
+    "mustInclude": ["technical", "502", "proxy", "framework", "logs"],
+    "mustAvoid": ["generic performance tips only"],
+    "notes": "Debugging without stack/logs should include problem type framing and ask targeted questions."
+  },
+  {
+    "id": "compact-api",
+    "question": "What is an API?",
+    "expectedType": "learning",
+    "shouldClarify": false,
+    "mustInclude": ["API", "application", "interface"],
+    "mustAvoid": ["counterexample", "full nine-part structure"],
+    "notes": "Very short concept question should stay compact."
+  },
+  {
+    "id": "risk-gdpr",
+    "question": "Is it safe to skip GDPR compliance for my SaaS app since we only have 50 users?",
+    "expectedType": "risk",
+    "shouldClarify": false,
+    "mustInclude": ["risk", "GDPR", "verify", "legal", "assumption"],
+    "mustAvoid": ["safe to skip"],
+    "notes": "High-stakes compliance answer must mark verification needs."
+  }
+]

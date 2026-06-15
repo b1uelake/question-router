@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex.local/skills/question-router/schemas/eval-case.schema.json",
+  "title": "Question Router Eval Suite",
+  "description": "Regression cases for the question-router skill. Each case captures the expected route and observable output requirements.",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "question",
+      "expectedType",
+      "shouldClarify",
+      "mustInclude",
+      "mustAvoid",
+      "notes"
+    ],
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      },
+      "question": {
+        "type": "string",
+        "minLength": 1
+      },
+      "expectedType": {
+        "$ref": "#/$defs/problemType"
+      },
+      "secondaryType": {
+        "$ref": "#/$defs/problemType"
+      },
+      "shouldClarify": {
+        "type": "boolean"
+      },
+      "mustInclude": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "default": []
+      },
+      "mustAvoid": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "default": []
+      },
+      "notes": {
+        "type": "string",
+        "minLength": 1
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uniqueItems": true
+      },
+      "maxChars": {
+        "type": "integer",
+        "minimum": 1
+      }
+    }
+  },
+  "$defs": {
+    "problemType": {
+      "type": "string",
+      "enum": [
+        "learning",
+        "analysis",
+        "decision",
+        "plan",
+        "risk",
+        "technical"
+      ]
+    }
+  }
+}

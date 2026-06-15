@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codex.local/skills/question-router/schemas/route.schema.json",
+  "title": "Question Router Internal Route",
+  "description": "Optional internal route object for testing, prompt compilation, or future structured routing. This schema is not a required final-answer format.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "problemType",
+    "shouldClarify",
+    "referenceFiles",
+    "reason"
+  ],
+  "properties": {
+    "problemType": {
+      "$ref": "#/$defs/problemType"
+    },
+    "secondaryTypes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/problemType"
+      },
+      "uniqueItems": true,
+      "default": []
+    },
+    "shouldClarify": {
+      "type": "boolean"
+    },
+    "clarifyingQuestions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "maxItems": 5,
+      "default": []
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "default": []
+    },
+    "referenceFiles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^references/(learning|analysis|decision|plan|risk|technical)\\.md$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "verificationNeed": {
+      "type": "string",
+      "enum": [
+        "none",
+        "source-needed",
+        "current-info-needed",
+        "expert-review-needed",
+        "user-data-needed"
+      ],
+      "default": "none"
+    },
+    "answerMode": {
+      "type": "string",
+      "enum": [
+        "compact",
+        "full",
+        "clarify-first"
+      ],
+      "default": "full"
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "$defs": {
+    "problemType": {
+      "type": "string",
+      "enum": [
+        "learning",
+        "analysis",
+        "decision",
+        "plan",
+        "risk",
+        "technical"
+      ]
+    }
+  }
+}

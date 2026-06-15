@@ -1,0 +1,4 @@
+interface:
+  display_name: "Question Router"
+  short_description: "Classify questions and improve answers"
+  default_prompt: "Use $question-router to classify my question, ask only necessary clarifying questions, and answer with assumptions, judgment standards, counterexamples, and next steps."
