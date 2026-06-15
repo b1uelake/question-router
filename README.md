@@ -116,6 +116,8 @@ The repo uses Codex's skill format (`SKILL.md` with YAML frontmatter, `agents/op
 - **Every recommendation needs criteria.** "Choose X" without "because Y under condition Z" is incomplete.
 - **Mark verification needs.** Legal, compliance, pricing, and source-dependent claims must be flagged for verification.
 
+中文版请见 [README.zh-CN.md](README.zh-CN.md)
+
 ## License
 
 MIT
