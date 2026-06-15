@@ -1,5 +1,7 @@
 # Question Router（问题路由器）
 
+[English](README.md)
+
 一套框架无关的提示方法论，将模糊、不完整的问题转化为结构清晰的高质量回答。它对请求进行分类、检查上下文充分性、只问必要的澄清问题、加载对应的回答契约，并在最终输出前进行质量校验。
 
 这套指令可以作为**系统提示词**用于任何基于 LLM 的 agent —— Claude Code、Codex、Cursor、Windsurf、ChatGPT、LangChain 或你自己搭建的 agent。本仓库使用了 Codex 的 skill 格式（YAML frontmatter + markdown），但方法论本身与平台无关。
@@ -112,8 +114,6 @@ bash scripts/run_evals.sh
 - **事实、推断、建议三者分离。** 读者应始终清楚哪个是哪个。
 - **每条建议都需要标准。** "选 X"但没有"因为在条件 Z 下 Y"是不完整的。
 - **标记验证需求。** 法律、合规、定价和依赖来源的论断必须标注需要验证。
-
-English version: [README.md](README.md)
 
 ## 许可证
 

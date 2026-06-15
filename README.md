@@ -1,5 +1,7 @@
 # Question Router
 
+[中文版](README.zh-CN.md)
+
 A framework-agnostic prompting methodology that turns under-specified questions into well-framed, high-quality answers. It classifies the request, checks context sufficiency, asks only necessary clarifying questions, loads the relevant response contract, and validates the answer before finalizing.
 
 The instructions work as a **system prompt** for any LLM-based agent — Claude Code, Codex, Cursor, Windsurf, ChatGPT, LangChain, or your own custom agent. The repo happens to use the Codex skill format (YAML frontmatter + markdown), but the methodology itself is platform-independent.
@@ -113,8 +115,6 @@ The repo uses Codex's skill format (`SKILL.md` with YAML frontmatter). This is a
 - **Separate facts from inference from advice.** The reader should always know which is which.
 - **Every recommendation needs criteria.** "Choose X" without "because Y under condition Z" is incomplete.
 - **Mark verification needs.** Legal, compliance, pricing, and source-dependent claims must be flagged for verification.
-
-中文版请见 [README.zh-CN.md](README.zh-CN.md)
 
 ## License
 
