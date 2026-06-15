@@ -59,7 +59,6 @@ def run_quick_validate(root: Path) -> None:
 def require_files(root: Path) -> None:
     required = [
         "SKILL.md",
-        "agents/openai.yaml",
         "evals/evals.json",
         "schemas/eval-case.schema.json",
         "schemas/route.schema.json",

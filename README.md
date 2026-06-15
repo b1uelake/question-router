@@ -46,8 +46,6 @@ For simple beginner questions, a compact mode compresses this into: type, direct
 ```
 question-router/
 ├── SKILL.md                           # Skill definition and core workflow
-├── agents/
-│   └── openai.yaml                    # Agent interface definition
 ├── references/                        # Response contracts per type
 │   ├── learning.md
 │   ├── analysis.md
@@ -105,7 +103,7 @@ The eval scripts default to a Codex-style HTTP API endpoint. To use a different 
 
 ## Codex-Specific Format
 
-The repo uses Codex's skill format (`SKILL.md` with YAML frontmatter, `agents/openai.yaml` interface definition). These files are thin wrappers — the core methodology lives in the reference contracts and the classification logic in `SKILL.md`, both of which are plain markdown. You can strip the YAML frontmatter and `agents/` directory and use the rest with any agent framework.
+The repo uses Codex's skill format (`SKILL.md` with YAML frontmatter). This is a thin wrapper — the core methodology lives in the reference contracts and the classification logic in `SKILL.md`, both of which are plain markdown. You can strip the YAML frontmatter and use the rest with any agent framework.
 
 ## Design Principles
 

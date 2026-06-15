@@ -46,8 +46,6 @@
 ```
 question-router/
 ├── SKILL.md                           # Skill 定义和核心工作流
-├── agents/
-│   └── openai.yaml                    # Agent 接口定义
 ├── references/                        # 各类型的回答契约
 │   ├── learning.md
 │   ├── analysis.md
@@ -104,7 +102,7 @@ bash scripts/run_evals.sh
 
 ## Codex 特定格式说明
 
-本仓库使用 Codex 的 skill 格式（`SKILL.md` 带 YAML frontmatter，`agents/openai.yaml` 接口定义）。这些文件只是薄封装 —— 核心方法论在于回答契约和 `SKILL.md` 中的分类逻辑，它们都是纯 markdown。你可以去掉 YAML frontmatter 和 `agents/` 目录，剩余部分即可在任何 agent 框架中使用。
+本仓库使用 Codex 的 skill 格式（`SKILL.md` 带 YAML frontmatter）。这只是薄封装 —— 核心方法论在于回答契约和 `SKILL.md` 中的分类逻辑，它们都是纯 markdown。你可以去掉 YAML frontmatter，剩余部分即可在任何 agent 框架中使用。
 
 ## 设计原则
 
